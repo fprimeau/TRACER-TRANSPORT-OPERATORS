@@ -1,13 +1,14 @@
 % set testcase resolution (KM) for world ocean, available
 % are: 240km, 120km, 60km, 30km, 15km
-  resolution   = '120kmN';
+%  resolution   = '120kmN';
 
 % read restart file from test cases
-  test_dir     = '/DFS-L/SCRATCH/moore/weiweif/MPAS-O/TestCases/';
-  test_case    = ['MPAS-O_V6.0_EC60to30/'];
-  restart_file = 'oEC60to30v3_60layer.170905.nc';
-  filename     = [test_dir test_case restart_file];
+%  test_dir     = '/DFS-L/SCRATCH/moore/weiweif/MPAS-O/TestCases/';
+%  test_case    = ['MPAS-O_V6.0_EC60to30/'];
+%  restart_file = 'oEC60to30v3_60layer.170905.nc';
+%  filename     = [test_dir test_case restart_file];
 
+function [gout,mpas] = mkS(filename)
 % read grid information: lonCell, latCell, nEdgesOnCell, cellsOnCell
 
   % mpas = ncReadAll(filename,'get',[24 19 9 5 29]);
@@ -40,3 +41,4 @@
   gout = mycolgroup(S);
   toc
   disp([num2str(max(gout(:))) ' IRF tracers are required to build TTM']);
+ end % end makeS
