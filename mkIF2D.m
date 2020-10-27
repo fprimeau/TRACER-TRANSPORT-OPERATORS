@@ -1,5 +1,6 @@
 function IFcells = mkIF2D(gout,mpas)
   % make IRF tracers with 0's and 1's for 1:max(gout)
+  % first horizontal and then vertical
   
   IFcells = repmat(0,[size(S,1) length(mpas.refBottomDepth) 3*max(gout)]);
   

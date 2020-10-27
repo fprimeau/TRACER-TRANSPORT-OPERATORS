@@ -10,6 +10,7 @@
 
 function [gout,mpas] = mkS(filename)
 % read grid information: lonCell, latCell, nEdgesOnCell, cellsOnCell
+% use colgroup to find the number of IRFs
 
   % mpas = ncReadAll(filename,'get',[24 19 9 5 29]);
   % [...] the indices of needed variables
