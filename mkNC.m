@@ -30,6 +30,7 @@ LL = structfind(f.Dimensions,'Name','nVertLevels');
 nVertL_len = f.Dimensions(LL).Length;
 LL = structfind(f.Dimensions,'Name','Time');
 nTime_len = f.Dimensions(LL).Length;
+
 disp(['nCells: ' num2str(nCells_len) ' nVertLevels: ' num2str(nVertL_len) ' Time ' num2str(nTime_len)]);
 
 % define global attributes
@@ -46,7 +47,7 @@ for i=1:size(IRF,3)
 % for i=1:2
   scrsh = sprintf('%s %d %s %s','now writing IRF',i,'into file ',outfile);
   disp(scrsh);
-  nccreate(outfile,['IRF_' num2str(i)],'Dimensions',{'nVertLevels',60,'nCells',235160,'Time',1},'format',ncformat);
+  nccreate(outfile,['IRF_' num2str(i)],'Dimensions',{'nVertLevels',nVertL_len,'nCells',nCells_len,'Time',1},'format',ncformat);
   ncwrite(outfile,['IRF_' num2str(i)],IRF(:,:,i),[1 1 1]);
   ncwriteatt(outfile,['IRF_' num2str(i)],'long_name',['IRF tracers number ' num2str(i)]);
 end

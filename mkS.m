@@ -8,7 +8,7 @@
 %  restart_file = 'oEC60to30v3_60layer.170905.nc';
 %  filename     = [test_dir test_case restart_file];
 
-function [gout,mpas] = mkS(filename)
+function [gout,S,mpas] = mkS(filename)
 % read grid information: lonCell, latCell, nEdgesOnCell, cellsOnCell
 % use colgroup to find the number of IRFs
 

@@ -1,4 +1,4 @@
-function IFcells = mkIF2D(gout,mpas)
+function IFcells = mkIF2D(gout,S,mpas)
   % make IRF tracers with 0's and 1's for 1:max(gout)
   % first horizontal and then vertical
   
