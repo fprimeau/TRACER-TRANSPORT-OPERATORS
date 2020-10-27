@@ -7,6 +7,8 @@
   test_case    = ['MPAS-O_V6.0_EC60to30/'];
   restart_file = 'oEC60to30v3_60layer.170905.nc';
   filename     = [test_dir test_case restart_file];
+
+  filename     = '../TestCases/ocean.EC30to60E2r2.200908.nc';
   outfile      = 'tmp.nc';
 
 % get MPAS-O grid and find the number of IRF tracers
