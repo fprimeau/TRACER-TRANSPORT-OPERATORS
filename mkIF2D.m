@@ -1,15 +1,19 @@
-function IFcells = mkIF2D(gout,S,mpas)
+function IFcells = mkIF2D(gout,S,mpas,kN)
   % make IRF tracers with 0's and 1's for 1:max(gout)
   % first horizontal and then vertical
   
-  IFcells = repmat(0,[size(S,1) length(mpas.refBottomDepth) 3*max(gout)]);
+  % IFcells = repmat(0,[size(S,1) length(mpas.refBottomDepth) 3*max(gout)]);
+  IFcells = repmat(0,[size(S,1) length(mpas.refBottomDepth) kN*max(gout)]);
   
   for j = 1:max(gout) % maximum tracers needed horizontally
-    for i = 1:3
+    % for i = 1:3
+    for i = 1:kN
       for k = 1:length(mpas.refBottomDepth)
-        if mod(k,3) == mod(i,3)
+        % if mod(k,3) == mod(i,3)
+        if mod(k,kN) == mod(i,kN)
           ind = find(gout == j);
-          IFcells(ind,k,i+(j-1)*3) = 1;
+          % IFcells(ind,k,i+(j-1)*3) = 1;
+          IFcells(ind,k,i+(j-1)*kN) = 1;
         end
     end
   end

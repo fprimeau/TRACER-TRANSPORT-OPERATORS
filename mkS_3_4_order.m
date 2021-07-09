@@ -32,10 +32,9 @@ function [gout,S,mpas] = mkS(filename)
     % cc = setdiff(c(1:n(i),i),[0]);
     % a cell is its own neighbor (index is added)
     % cc = setdiff([i; c(1:n(i),i)],[0]);
-    cc = fd(i,mpas);
+    cc = fdd(i,mpas);
     for j = 1:length(cc)
       ix(k) = i;
-      % iy(k) = cc(j);
       iy(k) = double(cc(j));
       s(k) = 1;
       k = k+1;
